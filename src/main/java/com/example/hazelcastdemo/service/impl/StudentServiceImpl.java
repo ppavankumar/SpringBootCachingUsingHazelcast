@@ -7,22 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 
 public class StudentServiceImpl implements StudentService {
 
-        @Autowired
-        private StudentRepo studentRepository;
+    @Autowired
+    private StudentRepo studentRepository;
 
 
     @Override
     public List<Student> getAllStudents() {
-       return studentRepository.findAll();
+        return studentRepository.findAll();
     }
 
     @Override
     public Student getStudentById(Integer studentId) {
-       return studentRepository.findById(studentId).orElse(null);
+        return studentRepository.findById(studentId).orElse(null);
     }
 
     @Override
@@ -32,10 +33,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student updateStudent(Student student, Integer studentId) {
-       Student student1 = studentRepository.findById(studentId).orElse(null);
-       student1.setFirstName(student.getFirstName());
-       student1.setLastName(student.getLastName());
-       student1.setAge(student.getAge());
+        Student student1 = studentRepository.findById(studentId).orElse(null);
+        student1.setFirstName(student.getFirstName());
+        student1.setLastName(student.getLastName());
+        student1.setAge(student.getAge());
 
         return studentRepository.save(student1);
     }
@@ -43,7 +44,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student deleteStudent(Integer studentId) {
         Student student = studentRepository.findById(studentId).orElse(null);
-       studentRepository.deleteById(studentId);
-       return student;
+        studentRepository.deleteById(studentId);
+        return student;
     }
 }

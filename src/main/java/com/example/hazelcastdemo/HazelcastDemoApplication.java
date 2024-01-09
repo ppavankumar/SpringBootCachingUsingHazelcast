@@ -8,8 +8,8 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 public class HazelcastDemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HazelcastDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HazelcastDemoApplication.class, args);
+    }
 
 }
